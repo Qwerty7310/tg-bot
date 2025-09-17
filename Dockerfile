@@ -5,8 +5,8 @@ RUN go mod download
 COPY . .
 RUN go build -o bot main.go
 
-FROM ubuntu:22.04
+FROM golang:1.24-bullseye
 WORKDIR /app
 COPY --from=builder /app/bot .
-RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 CMD ["./bot"]
