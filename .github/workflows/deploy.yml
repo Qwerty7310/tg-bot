@@ -32,4 +32,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd ~/bot
-            docker compose up -d --build
+            docker compose down
+            docker compose pull || true
+            docker compose build --pull
+            docker compose up -d

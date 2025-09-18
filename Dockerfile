@@ -1,12 +1,11 @@
-FROM golang:1.24 AS builder
+FROM golang:1.24-alpine AS builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN go build -o bot main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o bot main.go
 
-FROM golang:1.24-bullseye
+FROM alpine:3.18
 WORKDIR /app
 COPY --from=builder /app/bot .
-#RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 CMD ["./bot"]
