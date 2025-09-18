@@ -74,15 +74,15 @@ func main() {
 
 				if resp.StatusCode == http.StatusOK {
 					msg := tgbotapi.NewMessage(chatID, fmt.Sprintf("200 OK\n%s", u))
-					_, err := bot.Send(msg)
-					if err != nil {
+					_, errr := bot.Send(msg)
+					if errr != nil {
 						log.Println("Ошибка отправки:", err)
 					}
 				}
 
 				resp.Body.Close()
-				time.Sleep(15 * time.Second)
 			}
+			time.Sleep(30 * time.Second)
 		}
 	}()
 
