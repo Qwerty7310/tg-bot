@@ -18,7 +18,6 @@ func main() {
 	}
 
 	url := []string{
-		"https://comedyconcert.ru/event/neigry-march25",
 		"https://comedyconcert.ru/event/neigry-september25",
 		"https://comedyconcert.ru/event/neigry-october25",
 		"https://comedyconcert.ru/event/neigry-november25",
