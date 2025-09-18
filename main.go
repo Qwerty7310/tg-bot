@@ -17,9 +17,11 @@ func main() {
 		log.Fatal("Установите TELEGRAM_TOKEN")
 	}
 
-	url := os.Getenv("NEIGRY_URL")
-	if url == "" {
-		log.Fatal("Установите NEIGRY_URL")
+	url := []string{
+		"https://comedyconcert.ru/event/neigry-march25",
+		"https://comedyconcert.ru/event/neigry-september25",
+		"https://comedyconcert.ru/event/neigry-october25",
+		"https://comedyconcert.ru/event/neigry-november25",
 	}
 
 	chatID := int64(1622492999)
@@ -58,31 +60,27 @@ func main() {
 
 	go func() {
 		for {
-			resp, err := http.Get(url)
-			if err != nil {
-				msg := tgbotapi.NewMessage(chatID, "Не удалось сделать запрос!")
-				_, err := bot.Send(msg)
+			for _, u := range url {
+				resp, err := http.Get(u)
 				if err != nil {
-					log.Println("Ошибка отправки:", err)
+					msg := tgbotapi.NewMessage(chatID, "Не удалось сделать запрос!")
+					_, err := bot.Send(msg)
+					if err != nil {
+						log.Println("Ошибка отправки:", err)
+					}
 				}
-			}
 
-			if resp.StatusCode == http.StatusOK {
-				msg := tgbotapi.NewMessage(chatID, "200 OK")
-				_, err := bot.Send(msg)
-				if err != nil {
-					log.Println("Ошибка отправки:", err)
+				if resp.StatusCode == http.StatusOK {
+					msg := tgbotapi.NewMessage(chatID, fmt.Sprintf("200 OK\n%s", u))
+					_, err := bot.Send(msg)
+					if err != nil {
+						log.Println("Ошибка отправки:", err)
+					}
 				}
-			} else {
-				msg := tgbotapi.NewMessage(chatID, fmt.Sprintf("Сайт ответил: %d %s\n", resp.StatusCode, resp.Status))
-				_, err := bot.Send(msg)
-				if err != nil {
-					log.Println("Ошибка отправки:", err)
-				}
-			}
 
-			resp.Body.Close()
-			time.Sleep(15 * time.Second)
+				resp.Body.Close()
+				time.Sleep(15 * time.Second)
+			}
 		}
 	}()
 
