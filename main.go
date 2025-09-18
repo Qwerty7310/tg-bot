@@ -63,11 +63,13 @@ func main() {
 			for _, u := range url {
 				resp, err := http.Get(u)
 				if err != nil {
+					log.Println("Не удалось сделать запрос:", err)
 					msg := tgbotapi.NewMessage(chatID, "Не удалось сделать запрос!")
-					_, err := bot.Send(msg)
-					if err != nil {
-						log.Println("Ошибка отправки:", err)
+					_, errr := bot.Send(msg)
+					if errr != nil {
+						log.Println("Ошибка отправки:", errr)
 					}
+					continue
 				}
 
 				if resp.StatusCode == http.StatusOK {
