@@ -32,4 +32,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd ~/bot
-            docker-compose up -d --build
+            docker compose up -d --build
