@@ -2,7 +2,7 @@ name: Deploy Bot
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -32,6 +32,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd ~/bot
+            echo "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" > .env
+            chmod 600 .env
             docker compose down
             docker compose pull || true
             docker compose build --pull
