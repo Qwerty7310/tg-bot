@@ -18,6 +18,8 @@ func main() {
 	}
 
 	url := []string{
+		"https://comedyconcert.ru/event/neigry-june25",
+		"https://comedyconcert.ru/event/neigry-march25",
 		"https://comedyconcert.ru/event/neigry-september25",
 		"https://comedyconcert.ru/event/neigry-october25",
 		"https://comedyconcert.ru/event/neigry-november25",
@@ -63,18 +65,13 @@ func main() {
 				resp, err := http.Get(u)
 				if err != nil {
 					log.Println("Не удалось сделать запрос:", err)
-					msg := tgbotapi.NewMessage(chatID, "Не удалось сделать запрос!")
-					_, errr := bot.Send(msg)
-					if errr != nil {
-						log.Println("Ошибка отправки:", errr)
-					}
 					continue
 				}
 
 				if resp.StatusCode == http.StatusOK {
 					msg := tgbotapi.NewMessage(chatID, fmt.Sprintf("200 OK\n%s", u))
-					_, errr := bot.Send(msg)
-					if errr != nil {
+					_, err := bot.Send(msg)
+					if err != nil {
 						log.Println("Ошибка отправки:", err)
 					}
 				}
