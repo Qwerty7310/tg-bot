@@ -18,8 +18,23 @@ func main() {
 	}
 
 	url := []string{
-		"https://comedyconcert.ru/event/neigry-october25",
+		"https://comedyconcert.ru/event/neigry-december25",
+		"https://comedyconcert.ru/event/neigry-decembe25",
+		"https://comedyconcert.ru/event/neigry-decemb25",
+		"https://comedyconcert.ru/event/neigry-decem25",
+		"https://comedyconcert.ru/event/neigry-dece25",
+		"https://comedyconcert.ru/event/neigry-dec25",
+		"https://comedyconcert.ru/event/neigry-de25",
+		"https://comedyconcert.ru/event/neigry-d25",
 		"https://comedyconcert.ru/event/neigry-november25",
+		"https://comedyconcert.ru/event/neigry-novembe25",
+		"https://comedyconcert.ru/event/neigry-novemb25",
+		"https://comedyconcert.ru/event/neigry-novem25",
+		"https://comedyconcert.ru/event/neigry-nove25",
+		"https://comedyconcert.ru/event/neigry-nov25",
+		"https://comedyconcert.ru/event/neigry-no25",
+		"https://comedyconcert.ru/event/neigry-n25",
+		"https://comedyconcert.ru/event/neigry-sept25",
 	}
 
 	chatID := int64(1622492999)
