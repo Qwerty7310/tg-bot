@@ -34,12 +34,12 @@ func main() {
 		"https://comedyconcert.ru/event/neigry-nov25",
 		"https://comedyconcert.ru/event/neigry-no25",
 		"https://comedyconcert.ru/event/neigry-n25",
-		"https://comedyconcert.ru/event/neigry-msk-dec",
+		//"https://comedyconcert.ru/event/neigry-msk-dec",
 		"https://comedyconcert.ru/event/neigry-msk-dec25",
 		"https://comedyconcert.ru/event/neigry",
 		"https://comedyconcert.ru/event/neigry-12",
 		"https://comedyconcert.ru/event/neigry-12-25",
-		"https://comedyconcert.ru/event/neigry-sept25",
+		//"https://comedyconcert.ru/event/neigry-sept25",
 	}
 
 	chatID := int64(1622492999)
