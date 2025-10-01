@@ -34,7 +34,6 @@ func main() {
 		"https://comedyconcert.ru/event/neigry-nov25",
 		"https://comedyconcert.ru/event/neigry-no25",
 		"https://comedyconcert.ru/event/neigry-n25",
-		"https://comedyconcert.ru/event/neigry-sept25",
 	}
 
 	chatID := int64(1622492999)
