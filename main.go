@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func main() {
@@ -18,28 +19,40 @@ func main() {
 	}
 
 	url := []string{
-		"https://comedyconcert.ru/event/neigry-december25",
-		"https://comedyconcert.ru/event/neigry-decembe25",
-		"https://comedyconcert.ru/event/neigry-decemb25",
-		"https://comedyconcert.ru/event/neigry-decem25",
-		"https://comedyconcert.ru/event/neigry-dece25",
-		"https://comedyconcert.ru/event/neigry-dec25",
-		"https://comedyconcert.ru/event/neigry-de25",
-		"https://comedyconcert.ru/event/neigry-d25",
-		"https://comedyconcert.ru/event/neigry-november25",
-		"https://comedyconcert.ru/event/neigry-novembe25",
-		"https://comedyconcert.ru/event/neigry-novemb25",
-		"https://comedyconcert.ru/event/neigry-novem25",
-		"https://comedyconcert.ru/event/neigry-nove25",
-		"https://comedyconcert.ru/event/neigry-nov25",
-		"https://comedyconcert.ru/event/neigry-no25",
-		"https://comedyconcert.ru/event/neigry-n25",
+		"https://comedyconcert.ru/event/neigry-january26",
+		"https://comedyconcert.ru/event/neigry-januar26",
+		"https://comedyconcert.ru/event/neigry-janua26",
+		"https://comedyconcert.ru/event/neigry-janu26",
+		"https://comedyconcert.ru/event/neigry-jan26",
+		"https://comedyconcert.ru/event/neigry-ja26",
+		"https://comedyconcert.ru/event/neigry-j26",
+		"https://comedyconcert.ru/event/neigry-february26",
+		"https://comedyconcert.ru/event/neigry-februar26",
+		"https://comedyconcert.ru/event/neigry-februa26",
+		"https://comedyconcert.ru/event/neigry-febru26",
+		"https://comedyconcert.ru/event/neigry-febr26",
+		"https://comedyconcert.ru/event/neigry-feb26",
+		"https://comedyconcert.ru/event/neigry-fe26",
+		"https://comedyconcert.ru/event/neigry-f26",
+		"https://comedyconcert.ru/event/neigry-march26",
+		"https://comedyconcert.ru/event/neigry-marc26",
+		"https://comedyconcert.ru/event/neigry-mar26",
+		"https://comedyconcert.ru/event/neigry-ma26",
+		"https://comedyconcert.ru/event/neigry-m26",
+		"https://comedyconcert.ru/event/neigry-april26",
+		"https://comedyconcert.ru/event/neigry-apri26",
+		"https://comedyconcert.ru/event/neigry-apr26",
+		"https://comedyconcert.ru/event/neigry-ap26",
+		"https://comedyconcert.ru/event/neigry-a26",
+		"https://comedyconcert.ru/event/neigry-may26",
+		"https://comedyconcert.ru/event/neigry-ma26",
+		"https://comedyconcert.ru/event/neigry-m26",
+		"https://comedyconcert.ru/event/neigry-june26",
+		"https://comedyconcert.ru/event/neigry-jun26",
+		"https://comedyconcert.ru/event/neigry-ju26",
+		"https://comedyconcert.ru/event/neigry-j26",
 		//"https://comedyconcert.ru/event/neigry-msk-dec",
-		"https://comedyconcert.ru/event/neigry-msk-dec25",
-		"https://comedyconcert.ru/event/neigry",
-		"https://comedyconcert.ru/event/neigry-12",
-		"https://comedyconcert.ru/event/neigry-12-25",
-		//"https://comedyconcert.ru/event/neigry-sept25",
+		//"https://comedyconcert.ru/event/neigry-msk-dec25",
 	}
 
 	chatID := int64(1622492999)
