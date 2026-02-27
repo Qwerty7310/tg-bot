@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: docker build -t telegram-bot .
@@ -32,7 +32,15 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd ~/bot
-            echo "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" > .env
+            if [ ! -f links.txt ]; then
+              echo "links.txt не найден в ~/bot. Создайте файл со ссылками (по одной на строку) и запустите deploy снова."
+              exit 1
+            fi
+            cat > .env <<EOF
+            TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}
+            CHAT_ID=${{ secrets.CHAT_ID }}
+            CHECK_INTERVAL_SECONDS=${{ secrets.CHECK_INTERVAL_SECONDS }}
+            EOF
             chmod 600 .env
             docker compose down
             docker compose pull || true
