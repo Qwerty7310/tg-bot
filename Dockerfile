@@ -7,6 +7,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o bot main.go
 
 FROM alpine:3.18
 WORKDIR /app
-RUN apk add --no-cache ca-certificates
 COPY --from=builder /app/bot .
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 CMD ["./bot"]
